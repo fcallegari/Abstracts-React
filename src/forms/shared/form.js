@@ -69,7 +69,7 @@ function Footer(props){
 		
 				<div className="row justify-content-center">
 				<div className="col-auto">
-				<a href={`http://maps.google.com/?q=${evento.segr_indirizzo} ${evento.segr_CAP} ${evento.segr_Comune}`} target="_blank" style={{display:"inline"}}>
+				<a href={`http://maps.google.com/?q=${evento.segr_indirizzo} ${evento.segr_CAP} ${evento.segr_Comune}`} target="_blank" rel="noopener noreferrer" style={{display:"inline"}}>
 				<i className="fas fa-map-marker-alt"></i>
 				</a>
 				{' '}{evento.segr_nome}
@@ -105,7 +105,7 @@ function Footer(props){
 				{evento.segr_Web &&
 			<div className="row justify-content-center">
 				<div className="col-auto"><i className="fas fa-globe"></i>
-				 <a href={`http://${evento.segr_Web}`} target="_blank">{' '}{evento.segr_Web}</a></div>
+				 <a href={`http://${evento.segr_Web}`} target="_blank" rel="noopener noreferrer">{' '}{evento.segr_Web}</a></div>
 			 </div>	
 				}
 
