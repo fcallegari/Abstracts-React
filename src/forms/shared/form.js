@@ -15,7 +15,7 @@ function Header(props){
 	return(
 <React.Fragment>
 <nav className="navbar navbar-light" style={{backgroundColor: "#5fbcb4"}}>
-	<img className="navbar-brand" src="/img/logo.png" alt="logo"></img>
+	<img className="navbar-brand" src={process.env.PUBLIC_URL + '/img/logo.png'} alt="logo"></img>
 	<form method="post" id="choose-language">
 			<div className="btn-group" role="group" aria-label="Choose language">
 			<button for="choose-language" type="submit" name="lang" value="IT" className="btn btnLink">IT</button>
@@ -62,7 +62,7 @@ function Footer(props){
 
 	<div className="row justify-content-center">
 	<div className="col-auto">
-		<a href="https://adarteventi.com"><img src="/img/logo.png" alt="AdArte Eventi" style={{width:120}}/></a>
+		<a href="https://adarteventi.com"><img src={process.env.PUBLIC_URL + '/img/logo.png'} alt="AdArte Eventi" style={{width:120}}/></a>
 	</div>
 	</div>
 		</div>
@@ -72,7 +72,7 @@ function Footer(props){
 				<a href={`http://maps.google.com/?q=${evento.segr_indirizzo} ${evento.segr_CAP} ${evento.segr_Comune}`} target="_blank" style={{display:"inline"}}>
 				<i className="fas fa-map-marker-alt"></i>
 				</a>
-				{evento.segr_nome}
+				{' '}{evento.segr_nome}
 			</div>
 		</div>
 		
@@ -85,27 +85,27 @@ function Footer(props){
 						
 				{evento.segr_Tel && 
 					<div className="row justify-content-center">
-					<div className="col-auto"><i className="fas fa-phone-alt"></i>{evento.segr_Tel}</div>
+					<div className="col-auto"><i className="fas fa-phone-alt"></i>{' '}{evento.segr_Tel}</div>
 				</div>
 				}
 
 				{evento.segr_Fax &&
 					<div className="row justify-content-center">
-					<div className="col-auto"><i className="fas fa-fax"></i>{evento.segr_Fax}</div>
+					<div className="col-auto"><i className="fas fa-fax"></i>{' '}{evento.segr_Fax}</div>
 				</div>
 				}
 
 				{evento.segr_Email &&
 				<div className="row justify-content-center">
 				<div className="col-auto"> <i className="fas fa-paper-plane"></i>
-					<a href={`mailto:${evento.segr_Email}`}>{evento.segr_Email}</a></div>
+					<a href={`mailto:${evento.segr_Email}`}>{' '}{evento.segr_Email}</a></div>
 				</div>
 				}
 
 				{evento.segr_Web &&
 			<div className="row justify-content-center">
 				<div className="col-auto"><i className="fas fa-globe"></i>
-				 <a href={`http://${evento.segr_Web}`} target="_blank">{evento.segr_Web}</a></div>
+				 <a href={`http://${evento.segr_Web}`} target="_blank">{' '}{evento.segr_Web}</a></div>
 			 </div>	
 				}
 
