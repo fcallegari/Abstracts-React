@@ -33,11 +33,11 @@ function Header(props){
 			<h6 className="card-subtitle mb-2 text-muted">
 		{evento.sottotitolo}
 			</h6>
-			<p className="card-text m-0">
-		{`${evento.sede_nome}, ${evento.c_tagDurata}`}
-			</p>
-			<p className="card-text m-0">
-		{`${evento.sede_indirizzo} - ${evento.sede_Comune} (${evento.sede_Prov})`}
+		<p className="card-text m-0">
+		{Array.of(evento.sede_nome , evento.c_tagDurata).filter((e)=> e.length>0).join(', ')}
+		</p>
+		<p className="card-text m-0">
+		{Array.of(evento.sede_indirizzo , evento.sede_Comune  + (evento.sede_Prov && ` (${evento.sede_Prov})`)).filter((e)=> e.length>0).join(' - ')}
 			</p>
 		</div>
 	</div>
