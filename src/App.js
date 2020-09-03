@@ -68,7 +68,7 @@ class Dispatch extends React.Component {
 		})
 		.done((res) => {
 			if (res) {
-				const path = "./modules/" + (res.is_custom ? id : "shared") + "/form.js";
+				const path = "./forms/" + (res.is_custom ? id : "shared") + "/form.js";
 				this.setState({
 					path: path,
 					evento: res
