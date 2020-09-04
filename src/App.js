@@ -6,24 +6,38 @@ import {
 	Redirect
 } from "react-router-dom";
 import $ from "jquery";
+import Contesto from './common/Contesto.js';
 
-export default function App() {
+export default class App extends React.Component {
 	
-	return(
-		<ErrorBoundary>		
-		<Router basename='/abs_r'>
-			<Switch>
-				<Route exact path="/:id" 
-				render={
-					(props) => { 
-						return (<Dispatch id={props.match.params.id}/>);
-					}
-				} />
-				<Route path="/">no data here</Route>
-			</Switch>
-		</Router>
-	</ErrorBoundary>
-			)
+	constructor(props) {
+		super(props);
+		this.state = {lingua: 'IT'};
+		
+    this.cambiaLingua = (l) => {
+			this.setState(() => ({lingua: l }));
+		};
+	}
+	
+	render() {
+		return(
+			<ErrorBoundary>		
+			<Contesto.Provider>
+			<Router basename='/abs_r'>
+				<Switch>
+					<Route exact path="/:id" 
+					render={
+						(props) => { 
+							return (<Dispatch id={props.match.params.id}/>);
+						}
+					} />
+					<Route path="/">no data here</Route>
+				</Switch>
+			</Router>
+			</Contesto.Provider>
+			</ErrorBoundary>
+		)
+	}
 }
 
 class Dispatch extends React.Component {
