@@ -1,48 +1,48 @@
 import React from 'react';
+import Contesto from 'src/common/Contesto.js';
 
 export default function Form (props) {
 		return (
 			<React.Fragment>
-			<Header evento={props.evento}/>
-			
+			<Header evento={props.evento}>
+			<LanguagePicker/>
+			</Header>
 			<Footer evento={props.evento}/>
 			</React.Fragment>
 		);	
+}
+
+function LanguagePicker() {
+	return(
+		<Contesto.Consumer>
+		<div className="btn-group" role="group" aria-label="Choose language">
+		<button type="submit" name="lang" value="IT" className="btn btnLink">IT</button>
+		<button type="submit" name="lang" value="EN" className="btn btnLink">EN</button>
+		</div>
+		</Contesto.Consumer>
+	)
 }
 
 function Header(props){
 	const evento = props.evento;
 	return(
 <React.Fragment>
-<nav className="navbar navbar-light" style={{backgroundColor: "#5fbcb4"}}>
-	<img className="navbar-brand" src={process.env.PUBLIC_URL + '/img/logo.png'} alt="logo"></img>
-	<form method="post" id="choose-language">
-			<div className="btn-group" role="group" aria-label="Choose language">
-			<button for="choose-language" type="submit" name="lang" value="IT" className="btn btnLink">IT</button>
-			<button for="choose-language" type="submit" name="lang" value="EN" className="btn btnLink">EN</button>
-	</div>
-	</form>
-</nav>
-		<br/>
-<div className="container">
-	<div className="card shadow text-center">
-		<div className="card-body m-2">
-			<h5 className="card-title">
-		{evento.titoloEvento}
-			</h5>
-			<h6 className="card-subtitle mb-2 text-muted">
-		{evento.sottotitolo}
-			</h6>
-		<p className="card-text m-0">
-		{Array.of(evento.sede_nome , evento.c_tagDurata).filter((e)=> e.length>0).join(', ')}
-		</p>
-		<p className="card-text m-0">
-		{Array.of(evento.sede_indirizzo , evento.sede_Comune  + (evento.sede_Prov && ` (${evento.sede_Prov})`)).filter((e)=> e.length>0).join(' - ')}
-			</p>
+	<nav className="navbar navbar-light" style={{backgroundColor: "#5fbcb4"}}>
+		<img className="navbar-brand" src={process.env.PUBLIC_URL + '/img/logo.png'} alt="logo"></img>
+		{props.children}
+	</nav>
+	<br/>
+	<div className="container">
+		<div className="card shadow text-center">
+			<div className="card-body m-2">
+				<h5 className="card-title">{evento.titoloEvento}</h5>
+				<h6 className="card-subtitle mb-2 text-muted">{evento.sottotitolo}</h6>
+				<p className="card-text m-0">{Array.of(evento.sede_nome , evento.c_tagDurata).filter((e)=> e.length>0).join(', ')}</p>
+				<p className="card-text m-0">{Array.of(evento.sede_indirizzo , evento.sede_Comune  + (evento.sede_Prov && ` (${evento.sede_Prov})`)).filter((e)=> e.length>0).join(' - ')}</p>
+			</div>
 		</div>
 	</div>
-		</div>
-	</React.Fragment>
+</React.Fragment>
 	);
 }
 
