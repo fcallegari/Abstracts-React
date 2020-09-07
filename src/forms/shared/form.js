@@ -80,7 +80,7 @@ function Footer( props ) {
 			<div className="col-auto"> {evento.segr_indirizzo} </div>
 		</div>
 		<div className="row justify-content-center">
-			<div className="col-auto"> {evento.segr_CAP} {evento.segr_Comune}( {evento.segr_Prov} ) </div>
+			<div className="col-auto"> {evento.segr_CAP} {evento.segr_Comune} ({evento.segr_Prov}) </div>
 		</div>
 
 		{ evento.segr_Tel &&
