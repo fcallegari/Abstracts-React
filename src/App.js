@@ -14,26 +14,23 @@ export default class App extends React.Component {
 	render() {
 			return (
 				<ErrorBoundary>
-
-				<Router basename = '/abs_r'>
-				<Switch>
-				<Route exact path = "/:id" render =
-				{
-					( props ) => {
-						return ( <Dispatch id = {props.match.params.id}/>);
-					}
-				}/>
-				<Route path = "/"> no data here </Route>
-				</Switch>
+					<Router basename = '/abs_r'>
+					<Switch>
+						<Route exact path = "/:id" render =
+						{
+							( props ) => {
+								return ( <Dispatch id = {props.match.params.id}/>);
+							}
+						}/>
+						<Route path = "/"> no data here </Route>
+					</Switch>
 				</Router>
-
-		</ErrorBoundary>
+			</ErrorBoundary>
 		)
 	}
 }
 
-		class Dispatch extends React.Component {
-
+class Dispatch extends React.Component {
 				constructor( props ) {
 					super( props );
 					this.getEvent = this.getEvent.bind( this );
@@ -109,7 +106,6 @@ export default class App extends React.Component {
 				}
 
 class ErrorBoundary extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
