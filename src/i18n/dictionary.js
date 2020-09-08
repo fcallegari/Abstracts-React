@@ -38,6 +38,10 @@ const Dictionary = {
 	"privacy_consent_submit": {
 		"it": "Procedi",
 		"en": "Proceed"
+	},
+	"segreteria": {
+		"it": "Segreteria Organizzativa",
+		"en": "Secretariat"
 	}
 };
 
