@@ -7,7 +7,8 @@ export class ProviderLingua extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			lingua: 'it'
+			lingua: 'it',
+			evento: this.props.evento
 		};
 
 		this.cambiaLingua = this.cambiaLingua.bind(this);
@@ -27,8 +28,9 @@ export class ProviderLingua extends React.Component {
 		return (
 			<ContestoLingua.Provider
 				value = {{
-					value: this.state.lingua,
-					toggle: this.cambiaLingua,
+					evento: this.state.evento,
+					lingua: this.state.lingua,
+					cambiaLingua: this.cambiaLingua,
 					t: this.traduci
 				}}
 				>
