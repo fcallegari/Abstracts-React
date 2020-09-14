@@ -11,39 +11,33 @@ export class ProviderLingua extends React.Component {
 			evento: this.props.evento
 		};
 
-		this.cambiaLingua = this.cambiaLingua.bind(this);
-		this.traduci = this.traduci.bind(this);
+		this.cambiaLingua = this.cambiaLingua.bind( this );
+		this.traduci = this.traduci.bind( this );
 
 	}
 
-	cambiaLingua(l) {
-		this.setState({lingua: l});
+	cambiaLingua( l ) {
+		this.setState( {
+			lingua: l
+		} );
 	}
 
-	traduci(id) {
-		return <span dangerouslySetInnerHTML={{ __html: Dictionary[id][this.state.lingua] }}/>;
+	traduci( id , ...p) {
+		const string = eval("`" + Dictionary[ id ][ this.state.lingua ] + "`");
+		return <span dangerouslySetInnerHTML = {{__html: string}}/>;
 	}
 
 	render() {
-		return (
-			<ContestoLingua.Provider
-				value = {{
+		return ( <ContestoLingua.Provider value = {
+				{
 					evento: this.state.evento,
 					lingua: this.state.lingua,
 					cambiaLingua: this.cambiaLingua,
 					t: this.traduci
-				}}
-				>
-				{this.props.children}
-			</ContestoLingua.Provider>
+				}
+			} > {
+				this.props.children
+			} </ContestoLingua.Provider>
 		);
 	}
-}
-
-export function ConsumerLingua(props){
-	return(
-		<ContestoLingua.Consumer>
-			{props.children}
-		</ContestoLingua.Consumer>
-	);
 }

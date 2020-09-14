@@ -1,15 +1,15 @@
 const Dictionary = {
 	"desk_expire": {
-		"it": "Il termine per il caricamento degli abstracts associati a questo evento è scaduto il %1$s.<br>Contatta la Segreteria Organizzativa.",
-		"en": "Abstracts submission for this event expired on %1$s.<br>Please contact the Secretariat for further assistance."
+		"it": "Il termine per il caricamento degli abstracts associati a questo evento è scaduto il ${p[0]}.<br>Contatta la Segreteria Organizzativa.",
+		"en": "Abstracts submission for this event expired on ${p[0]}.<br>Please contact the Secretariat for further assistance."
 	},
 	"desk_closed": {
 		"it": "Il Desk di registrazione online non è stato attivato per questo evento.",
 		"en": "The registration desk has not been activated for this event."
 	},
 	"privacy": {
-		"it": "Per procedere dovrai esprimere il consenso al trattamento dei dati sulla base della nostra %1$s.",
-		"en": "Please read and confirm our %1$s."
+		"it": "Per procedere dovrai esprimere il consenso al trattamento dei dati sulla base della nostra ${p[0]}.",
+		"en": "Please read and confirm our ${p[0]}."
 	},
 	"privacy_link": {
 		"it": "Informativa sul trattamento dei dati personali",
