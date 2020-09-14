@@ -8,7 +8,7 @@ import {
 	Redirect
 } from "react-router-dom";
 import $ from "jquery";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class App extends React.Component {
 	render() {
